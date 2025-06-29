@@ -74,7 +74,7 @@ export function Hero() {
             </Link>
 
             <Link
-              href="/services"
+              href="tel:+‭18184574095‬"
               className="group relative inline-flex items-center justify-center rounded-full bg-transparent border-2 border-[#D4AF37] px-8 py-3 text-base font-medium text-white transition-all duration-300 ease-in-out hover:bg-[#D4AF37]/10 hover:shadow-lg hover:shadow-[#D4AF37]/20 hover:translate-y-[-2px] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:ring-offset-2 focus:ring-offset-[#191919]"
             >
               <span>Contact</span>

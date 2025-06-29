@@ -1,7 +1,6 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "motion/react";
-import { useMediaQuery } from "@/hooks/use-media-query";
 import Image from "next/image";
 
 const menuData = {
@@ -283,6 +282,7 @@ const MenuSection = ({
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
       className="mb-8"
+      id={title.toLowerCase().replace(" ", "-")}
     >
       <h3 className="text-2xl font-bold text-[#D4AF37] mb-6 text-center uppercase tracking-wide">
         {title}
@@ -332,12 +332,32 @@ const MenuSection = ({
 };
 
 export function Menu() {
-  const isMobile = useMediaQuery("(max-width: 768px)");
+  const [activeCategory, setActiveCategory] = useState("main-menu");
+
+  const categories = [
+    { id: "main-menu", title: "Main Menu" },
+    { id: "burgers", title: "Burgers" },
+    { id: "appetizers", title: "Appetizers" },
+    { id: "cold-beverages", title: "Cold Beverages" },
+    { id: "salads", title: "Salads" },
+    { id: "soups", title: "Soups" },
+    { id: "extras", title: "Extras" },
+  ];
+
+  const scrollToCategory = (categoryId: string) => {
+    setActiveCategory(categoryId);
+    const element = document.getElementById(categoryId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const [activeTab, setActiveTab] = useState<"desktop" | "mobile">("mobile");
 
   return (
     <div
       id="menu"
-      className="w-full bg-[#191919] py-20 md:py-28 relative overflow-hidden"
+      className="w-full relative bg-[#191919] py-20 md:py-28 relative overflow-hidden"
     >
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-5">
@@ -368,8 +388,74 @@ export function Menu() {
           </p>
         </motion.div>
 
+        {/* Tab Selector */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="flex justify-center mb-12"
+        >
+          <div className="bg-[#252525] rounded-full p-1 border border-[#D4AF37]/30">
+            <div className="flex space-x-1">
+              <button
+                onClick={() => setActiveTab("desktop")}
+                className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
+                  activeTab === "desktop"
+                    ? "bg-[#D4AF37] text-black shadow-lg"
+                    : "text-white/70 hover:text-white hover:bg-[#D4AF37]/10"
+                }`}
+              >
+                <div className="flex items-center space-x-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
+                  <span>Menu Image</span>
+                </div>
+              </button>
+              <button
+                onClick={() => setActiveTab("mobile")}
+                className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
+                  activeTab === "mobile"
+                    ? "bg-[#D4AF37] text-black shadow-lg"
+                    : "text-white/70 hover:text-white hover:bg-[#D4AF37]/10"
+                }`}
+              >
+                <div className="flex items-center space-x-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+                    />
+                  </svg>
+                  <span>Menu List</span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </motion.div>
+
         {/* Desktop: Show Menu Image */}
-        {!isMobile && (
+        {activeTab === "desktop" && (
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -401,22 +487,49 @@ export function Menu() {
         )}
 
         {/* Mobile: Show Custom UI Breakdown */}
-        {isMobile && (
-          <div className="space-y-8">
-            <MenuSection title="Main Menu" items={menuData.menu} />
-            <MenuSection title="Burgers" items={menuData.burgers} showPrices />
-            <MenuSection
-              title="Appetizers"
-              items={menuData.appetizers}
-              showPrices
-            />
-            <MenuSection
-              title="Cold Beverages"
-              items={menuData.cold_beverages}
-              showPrices
-            />
-            <MenuSection title="Extras" items={menuData.extras} showPrices />
-          </div>
+        {activeTab === "mobile" && (
+          <>
+            <div className="sticky top-0 z-50 bg-[#191919]/95 backdrop-blur-md border-b border-[#D4AF37]/20 mb-8">
+              <div className="max-w-7xl mx-auto px-4 md:px-8">
+                <div className="flex overflow-x-auto scrollbar-hide py-4 space-x-2">
+                  {categories.map((category) => (
+                    <button
+                      key={category.id}
+                      onClick={() => scrollToCategory(category.id)}
+                      className={`whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex-shrink-0 ${
+                        activeCategory === category.id
+                          ? "bg-[#D4AF37] text-black shadow-lg"
+                          : "bg-[#252525] text-white/70 hover:text-white hover:bg-[#D4AF37]/10 border border-[#D4AF37]/30"
+                      }`}
+                    >
+                      {category.title}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="space-y-8">
+              <MenuSection title="Main Menu" items={menuData.menu} />
+              <MenuSection
+                title="Burgers"
+                items={menuData.burgers}
+                showPrices
+              />
+              <MenuSection
+                title="Appetizers"
+                items={menuData.appetizers}
+                showPrices
+              />
+              <MenuSection
+                title="Cold Beverages"
+                items={menuData.cold_beverages}
+                showPrices
+              />
+              <MenuSection title="Salads" items={menuData.salads} showPrices />
+              <MenuSection title="Soups" items={menuData.soups} showPrices />
+              <MenuSection title="Extras" items={menuData.extras} showPrices />
+            </div>
+          </>
         )}
 
         {/* Call to Action */}
