@@ -40,7 +40,7 @@ export function Features2() {
       icon: Phone,
       title: "Easy Ordering",
       description:
-        "Simple phone ordering with friendly staff ready to help. We know our regular customers' favorites and can recommend dishes based on your preferences.",
+        "Simple phone ordering with friendly staff ready to help. We know our regular customers&apos; favorites and can recommend dishes based on your preferences.",
     },
   ];
 
@@ -74,9 +74,9 @@ export function Features2() {
           </h2>
 
           <p className="text-white/80 max-w-2xl mx-auto text-lg">
-            From dine-in experiences to catering and delivery, we're here to
-            serve you authentic Mediterranean and Middle Eastern cuisine however
-            you prefer
+            From dine-in experiences to catering and delivery, we&apos;re here
+            to serve you authentic Mediterranean and Middle Eastern cuisine
+            however you prefer
           </p>
         </motion.div>
 
