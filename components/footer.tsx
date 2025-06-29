@@ -37,6 +37,66 @@ export function Footer() {
         <ChefHat className="absolute w-48 h-48 text-[#D4AF37] left-20 top-10 rotate-45" />
       </div>
 
+      {/* Map Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="py-12 border-b border-[#D4AF37]/20"
+      >
+        <div className="text-center mb-8">
+          <h3 className="text-2xl font-bold text-white mb-2">
+            Visit <span className="text-[#D4AF37]">Our Location</span>
+          </h3>
+          <p className="text-white/70">Find us at Mega Glatt Mart in Reseda</p>
+        </div>
+
+        <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-[#D4AF37]/20">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.892634167891!2d-118.5383695!3d34.1812046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2997500d5ce7f%3A0x555c227a648edb34!2s6114%20Reseda%20Blvd%2C%20Reseda%2C%20CA%2091335!5e0!3m2!1sen!2sus!4v1640000000000!5m2!1sen!2sus"
+            width="100%"
+            height="400"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="w-full h-[300px] md:h-[400px] grayscale-[0.3] contrast-[1.1] brightness-[0.9]"
+          ></iframe>
+
+          {/* Map Overlay */}
+          <div className="absolute top-4 left-4 bg-[#191919]/90 backdrop-blur-sm rounded-lg px-4 py-3 border border-[#D4AF37]/30">
+            <div className="flex items-center gap-3">
+              <div className="w-3 h-3 bg-[#D4AF37] rounded-full animate-pulse"></div>
+              <div>
+                <p className="text-white font-semibold text-sm">
+                  Pankina Grill
+                </p>
+                <p className="text-white/70 text-xs">at Mega Glatt Mart</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+        className="flex flex-col md:flex-row justify-between items-center pt-8"
+      >
+        <p className="text-sm text-white/60">
+          © {new Date().getFullYear()} Pankina Grill. All rights reserved.
+        </p>
+
+        <div className="mt-4 md:mt-0 flex items-center">
+          <span className="text-white/60 text-sm">
+            <Utensils className="inline-block w-4 h-4 mr-2 text-[#D4AF37]" />
+            Where flavor meets tradition
+          </span>
+        </div>
+      </motion.div>
       <div className="max-w-7xl mx-auto px-6 md:px-8 py-16 md:py-20 relative z-10">
         {/* Main Footer Content */}
         <motion.div
@@ -168,69 +228,6 @@ export function Footer() {
                 ))}
               </ul>
             </motion.div>
-          </div>
-        </motion.div>
-
-        {/* Map Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="py-12 border-b border-[#D4AF37]/20"
-        >
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold text-white mb-2">
-              Visit <span className="text-[#D4AF37]">Our Location</span>
-            </h3>
-            <p className="text-white/70">
-              Find us at Mega Glatt Mart in Reseda
-            </p>
-          </div>
-
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-[#D4AF37]/20">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.892634167891!2d-118.5383695!3d34.1812046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2997500d5ce7f%3A0x555c227a648edb34!2s6114%20Reseda%20Blvd%2C%20Reseda%2C%20CA%2091335!5e0!3m2!1sen!2sus!4v1640000000000!5m2!1sen!2sus"
-              width="100%"
-              height="400"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="w-full h-[300px] md:h-[400px] grayscale-[0.3] contrast-[1.1] brightness-[0.9]"
-            ></iframe>
-
-            {/* Map Overlay */}
-            <div className="absolute top-4 left-4 bg-[#191919]/90 backdrop-blur-sm rounded-lg px-4 py-3 border border-[#D4AF37]/30">
-              <div className="flex items-center gap-3">
-                <div className="w-3 h-3 bg-[#D4AF37] rounded-full animate-pulse"></div>
-                <div>
-                  <p className="text-white font-semibold text-sm">
-                    Pankina Grill
-                  </p>
-                  <p className="text-white/70 text-xs">at Mega Glatt Mart</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="flex flex-col md:flex-row justify-between items-center pt-8"
-        >
-          <p className="text-sm text-white/60">
-            © {new Date().getFullYear()} Pankina Grill. All rights reserved.
-          </p>
-
-          <div className="mt-4 md:mt-0 flex items-center">
-            <span className="text-white/60 text-sm">
-              <Utensils className="inline-block w-4 h-4 mr-2 text-[#D4AF37]" />
-              Where flavor meets tradition
-            </span>
           </div>
         </motion.div>
       </div>
