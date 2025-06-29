@@ -344,7 +344,7 @@ export function Menu() {
               <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37]/20 to-[#C9A227]/20 rounded-2xl blur-xl transform scale-105"></div>
               <div className="relative bg-gradient-to-b from-[#252525] to-[#1d1d1d] rounded-2xl p-8 border border-[#D4AF37]/30">
                 <Image
-                  src="/images/image.png"
+                  src="/images/menu.jpeg"
                   alt="Pankina Grill Menu"
                   width={1200}
                   height={800}
