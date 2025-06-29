@@ -32,7 +32,7 @@ export function Hero() {
 
           {/* Main heading */}
           <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
-            <span className="text-[#D4AF37]">Panika Grill</span>
+            <span className="text-[#D4AF37]">Pankina Grill</span>
             <br />
             <span className="text-3xl md:text-4xl font-semibold text-white tracking-wide block mt-2">
               Taste the East
