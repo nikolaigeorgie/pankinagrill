@@ -2,53 +2,45 @@
 
 import React from "react";
 import { motion } from "motion/react";
-import {
-  PawPrintIcon as Paw,
-  Heart,
-  Gift,
-  Sparkles,
-  Car,
-  Stethoscope,
-  GraduationCap,
-} from "lucide-react";
+import { Utensils, Truck, Users, Clock, ChefHat, Phone } from "lucide-react";
 
 export function Features2() {
   const features = [
     {
-      icon: Heart,
-      title: "Pup Care",
+      icon: Utensils,
+      title: "Dine-In Experience",
       description:
-        "Playtime, Dance Parties, Doga (yoga), Naptime, Movies, Outdoor water park and more! Your pup will have the time of their life with our engaging activities.",
+        "Enjoy our authentic Mediterranean and Middle Eastern cuisine in our warm, welcoming atmosphere. Fresh ingredients prepared daily by our experienced chefs.",
     },
     {
-      icon: Gift,
-      title: "Pup Parties",
+      icon: Truck,
+      title: "Fast Delivery",
       description:
-        "Birthdays, Photoshoots, and more. Come celebrate with us! We'll make your pup's special day unforgettable with custom themes and decorations.",
+        "Quick and reliable delivery service to bring our delicious food right to your door. Hot, fresh meals delivered within 30-45 minutes in our coverage area.",
     },
     {
-      icon: Sparkles,
-      title: "Pup Spa",
+      icon: Users,
+      title: "Catering Services",
       description:
-        "Let us pamper your pup! From luxurious baths to pawdicures, we offer a range of spa services to keep your furry friend looking and feeling their best.",
+        "Perfect for parties, events, and gatherings! We offer full catering packages with authentic flavors that will impress your guests. Custom menu planning available.",
     },
     {
-      icon: Car,
-      title: "Pup Rides",
+      icon: Clock,
+      title: "Quick Takeout",
       description:
-        "We offer pickup and dropoff services for your pup within the covered area. Safe, reliable transportation when you need it most.",
+        "Call ahead or order online for fast pickup. Your food will be ready when you arrive - perfect for busy schedules and lunch breaks.",
     },
     {
-      icon: Stethoscope,
-      title: "On-call Vet",
+      icon: ChefHat,
+      title: "Fresh Daily Prep",
       description:
-        "Check ups and yearly vaccines offered through our partnered vets. Keeping your pup healthy is our top priority.",
+        "All our ingredients are fresh and prepared daily. From our homemade hummus to perfectly grilled kebabs, taste the difference quality makes.",
     },
     {
-      icon: GraduationCap,
-      title: "Pup Training",
+      icon: Phone,
+      title: "Easy Ordering",
       description:
-        "Custom training services tailored to your needs. Get a free 30 min consultation with our expert trainers to develop the perfect plan for your pup.",
+        "Simple phone ordering with friendly staff ready to help. We know our regular customers' favorites and can recommend dishes based on your preferences.",
     },
   ];
 
@@ -60,9 +52,9 @@ export function Features2() {
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-0 w-full h-full">
-          <Paw className="absolute w-96 h-96 text-[#D4AF37] -left-20 top-10 rotate-12" />
-          <Paw className="absolute w-64 h-64 text-[#D4AF37] right-10 bottom-10 -rotate-12" />
-          <Paw className="absolute w-32 h-32 text-[#D4AF37] right-1/3 top-1/3 rotate-45" />
+          <Utensils className="absolute w-96 h-96 text-[#D4AF37] -left-20 top-10 rotate-12" />
+          <ChefHat className="absolute w-64 h-64 text-[#D4AF37] right-10 bottom-10 -rotate-12" />
+          <Clock className="absolute w-32 h-32 text-[#D4AF37] right-1/3 top-1/3 rotate-45" />
         </div>
       </div>
 
@@ -78,13 +70,13 @@ export function Features2() {
           <div className="w-24 h-[3px] bg-[#D4AF37] mb-8 mx-auto"></div>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
-            Premium <span className="text-[#D4AF37]">Services</span> for Your
-            Royal Companion
+            Our <span className="text-[#D4AF37]">Services</span> & What We Offer
           </h2>
 
           <p className="text-white/80 max-w-2xl mx-auto text-lg">
-            From playtime to pampering, we offer comprehensive care services to
-            keep your furry friend happy, healthy and entertained
+            From dine-in experiences to catering and delivery, we're here to
+            serve you authentic Mediterranean and Middle Eastern cuisine however
+            you prefer
           </p>
         </motion.div>
 

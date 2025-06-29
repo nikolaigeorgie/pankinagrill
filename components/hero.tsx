@@ -11,7 +11,7 @@ export function Hero() {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-t from-[#191919] via-[#191919]/70 to-[#191919]/20 z-10"></div>
         <Image
-          src="/images/royal_dog.png"
+          src="/images/image1.png"
           alt="Luxury Dog Experience"
           className="w-full h-full object-cover object-center opacity-70"
           fill
@@ -31,16 +31,23 @@ export function Hero() {
           <div className="w-24 h-[3px] bg-[#D4AF37] mb-8"></div>
 
           {/* Main heading */}
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            Happy <span className="text-[#D4AF37]">Tails</span>, <br />
-            Wagging <span className="text-[#D4AF37]">Trails</span>
+          <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
+            <span className="text-[#D4AF37]">Panika Grill</span>
+            <br />
+            <span className="text-3xl md:text-4xl font-semibold text-white tracking-wide block mt-2">
+              Taste the East
+            </span>
           </h1>
 
           {/* Description text */}
           <p className="text-white/90 text-xl md:text-2xl font-light max-w-2xl mb-10 leading-relaxed">
-            Premium dog care that puts your pet&apos;s happiness first.
-            Professional, loving care for walks, stays, and everything in
-            between.
+            Authentic Middle Eastern cuisine in Tarzana.
+            <br />
+            Fresh kebabs, hummus, and Mediterranean favorites.
+            <br />
+            <span className="text-[#D4AF37] font-medium">
+              Taste from the East.
+            </span>
           </p>
 
           {/* CTA buttons */}
@@ -49,7 +56,7 @@ export function Hero() {
               href="/login"
               className="group relative inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#D4AF37] to-[#C9A227] px-8 py-3 text-base font-medium text-black transition-all duration-300 ease-in-out hover:shadow-lg hover:shadow-[#D4AF37]/30 hover:translate-y-[-2px] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:ring-offset-2"
             >
-              <span>Book Now</span>
+              <span>Menu</span>
               <motion.svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5 ml-2 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out transform group-hover:translate-x-1"
@@ -70,7 +77,7 @@ export function Hero() {
               href="/services"
               className="group relative inline-flex items-center justify-center rounded-full bg-transparent border-2 border-[#D4AF37] px-8 py-3 text-base font-medium text-white transition-all duration-300 ease-in-out hover:bg-[#D4AF37]/10 hover:shadow-lg hover:shadow-[#D4AF37]/20 hover:translate-y-[-2px] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:ring-offset-2 focus:ring-offset-[#191919]"
             >
-              <span>Our Services</span>
+              <span>Contact</span>
               <motion.svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5 ml-2 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out transform group-hover:translate-x-1"
@@ -87,6 +94,39 @@ export function Hero() {
               </motion.svg>
             </Link>
           </div>
+
+          {/* Address */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="mt-10"
+          >
+            <div className="flex items-center space-x-3 text-white/80">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-5 h-5 text-[#D4AF37] flex-shrink-0"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+              </svg>
+              <span className="text-base font-light tracking-wide">
+                6118 Reseda Blvd, Tarzana, CA 91335
+              </span>
+            </div>
+          </motion.div>
         </motion.div>
 
         {/* Decorative element */}
@@ -96,19 +136,18 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 1 }}
           className="absolute bottom-10 right-10 hidden md:block"
         >
-          <div className="w-32 h-32 bg-gradient-to-br from-[#D4AF37]/10 to-[#D4AF37]/30 border-2 border-[#D4AF37] rounded-full flex items-center justify-center relative overflow-hidden backdrop-blur-sm">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(212,175,55,0.4),transparent_70%)]"></div>
-            <div className="absolute inset-0 animate-spin-slow [background:linear-gradient(45deg,transparent_40%,rgba(212,175,55,0.3)_45%,rgba(212,175,55,0.3)_55%,transparent_60%)] blur-sm"></div>
-            <div className="text-center text-white relative z-10">
-              <div className="text-sm tracking-widest font-light">
-                TRUSTED BY
-              </div>
-              <div className="text-3xl font-bold bg-gradient-to-r from-[#D4AF37] to-[#F4CF47] bg-clip-text text-transparent drop-shadow-lg">
-                1000+
-              </div>
-              <div className="text-sm tracking-widest font-light">
-                PET PARENTS
-              </div>
+          <div className="w-32 h-32 bg-gradient-to-br from-[#F4CF47]/20 to-[#F4CF47]/40 border-2 border-[#F4CF47] rounded-full flex items-center justify-center relative overflow-hidden backdrop-blur-sm">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(244,207,71,0.6),transparent_70%)]"></div>
+            <div className="absolute inset-0 animate-spin-slow [background:linear-gradient(45deg,transparent_40%,rgba(244,207,71,0.5)_45%,rgba(244,207,71,0.5)_55%,transparent_60%)] blur-sm"></div>
+            <div className="relative z-10 p-3">
+              <Image
+                src="/images/rcc.png"
+                alt="RCC Kashrut Certification"
+                width={60}
+                height={60}
+                className="w-full h-auto object-contain filter drop-shadow-lg brightness-110"
+                draggable={false}
+              />
             </div>
           </div>
         </motion.div>

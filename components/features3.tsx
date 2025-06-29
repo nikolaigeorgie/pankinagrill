@@ -3,10 +3,12 @@ import React, { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import {
-  PawPrintIcon,
+  Utensils,
   MessageCircle,
   CreditCard,
   Calendar,
+  Star,
+  ChefHat,
 } from "lucide-react";
 
 // Message type definition
@@ -83,22 +85,21 @@ const SectionTitle = ({
   </div>
 );
 
-// Concierge Support Chat Section
-const ConciergeSection = () => {
+// Customer Service Chat Section
+const CustomerServiceSection = () => {
   const messages: Message[] = [
     {
       role: "assistant",
-      content:
-        "Hello! I'm your Prince Paws concierge. How may I assist you today?",
+      content: "Hello! Welcome to Pankina Grill. How can I help you today?",
     },
     {
       role: "user",
-      content: "I need to book a spa day for my golden retriever next week",
+      content: "I'd like to place a large catering order for this Friday",
     },
     {
       role: "assistant",
       content:
-        "Perfect! Our Royal Spa service includes a bath, brushing, nail trimming, and aromatherapy massage. Would you prefer morning or afternoon?",
+        "Perfect! Our catering includes fresh kebabs, shawarma, hummus platters, and more. How many people will you be serving?",
     },
   ];
 
@@ -141,7 +142,7 @@ const ConciergeSection = () => {
         >
           <input
             type="text"
-            placeholder="Ask about our royal services..."
+            placeholder="Ask about our menu or catering..."
             className="flex-1 outline-none text-sm bg-transparent text-white/90 placeholder-white/50"
           />
           <div className="flex items-center gap-3 text-[#D4AF37]">
@@ -149,7 +150,7 @@ const ConciergeSection = () => {
               whileHover={{ scale: 1.1, rotate: 5 }}
               className="hover:text-[#F4CF47] transition-colors"
             >
-              <PawPrintIcon size={18} />
+              <Utensils size={18} />
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.1, x: 2 }}
@@ -171,36 +172,36 @@ const ConciergeSection = () => {
       </ContentBox>
 
       <SectionTitle
-        title="24/7 Concierge Support"
-        description="Our royal concierge is available round the clock to assist with bookings, special requests, and care advice for your furry companion."
+        title="Customer Support"
+        description="Our friendly staff is always ready to help with orders, reservations, catering, and any questions about our Mediterranean cuisine."
         icon={MessageCircle}
       />
     </SectionWrapper>
   );
 };
 
-// Premium Membership Section
-const MembershipSection = () => {
+// Loyalty Program Section
+const LoyaltySection = () => {
   const [cards, setCards] = useState<Card[]>([
     {
       id: 1,
-      name: "Royal Gold",
-      designation: "Premium",
-      content: "Unlimited Spa Treatments",
+      name: "Gold Member",
+      designation: "VIP",
+      content: "20% Off All Orders",
       gradient: "from-[#D4AF37] to-[#C9A227]",
     },
     {
       id: 2,
-      name: "Silver Paw",
-      designation: "Standard",
-      content: "Weekly Grooming & Training",
+      name: "Silver Foodie",
+      designation: "Premium",
+      content: "15% Off + Free Delivery",
       gradient: "from-[#C0C0C0] to-[#A3A3A3]",
     },
     {
       id: 3,
-      name: "Bronze Care",
-      designation: "Basic",
-      content: "Essential Care Package",
+      name: "Bronze Taste",
+      designation: "Member",
+      content: "10% Off + Loyalty Points",
       gradient: "from-[#CD7F32] to-[#B57032]",
     },
   ]);
@@ -222,9 +223,9 @@ const MembershipSection = () => {
       <ContentBox>
         <div className="mb-8 text-center">
           <h2 className="text-[32px] font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#D4AF37] to-[#F4CF47]">
-            Premium Plans
+            Loyalty Program
           </h2>
-          <p className="text-white/70 text-sm">Tailored for Royal Treatment</p>
+          <p className="text-white/70 text-sm">Rewards for Our Food Lovers</p>
         </div>
 
         <div className="relative h-48">
@@ -243,11 +244,11 @@ const MembershipSection = () => {
             >
               <div className="flex justify-between items-center relative z-10">
                 <div className="w-12 h-8 bg-white/10 backdrop-blur-sm rounded-md flex items-center justify-center">
-                  <PawPrintIcon size={16} className="text-white" />
+                  <ChefHat size={16} className="text-white" />
                 </div>
                 <div className="flex space-x-2">
                   <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                    <span className="text-xs font-bold">PP</span>
+                    <span className="text-xs font-bold">PG</span>
                   </div>
                 </div>
               </div>
@@ -272,22 +273,22 @@ const MembershipSection = () => {
       </ContentBox>
 
       <SectionTitle
-        title="Luxury Membership Tiers"
-        description="Choose from our range of premium membership plans, each designed to provide exceptional care and exclusive benefits for your pet."
+        title="Reward Program"
+        description="Join our loyalty program and earn points with every order. Enjoy exclusive discounts, free delivery, and special member-only offers."
         icon={CreditCard}
       />
     </SectionWrapper>
   );
 };
 
-// Scheduling Section Component
-const SchedulingSection = () => {
+// Reservation System Section
+const ReservationSection = () => {
   return (
     <SectionWrapper>
       <ContentBox>
         <div className="flex items-center justify-between mb-6">
           <button className="text-[#D4AF37] hover:text-[#F4CF47] transition-colors font-medium text-sm">
-            + New Appointment
+            + New Reservation
           </button>
           <div className="flex -space-x-3">
             {[1, 2, 3].map((i) => (
@@ -295,11 +296,11 @@ const SchedulingSection = () => {
                 key={i}
                 className="w-8 h-8 rounded-full bg-[#353535] border-2 border-[#1d1d1d] ring-1 ring-[#D4AF37]/20 flex items-center justify-center text-[10px] font-medium text-white/80"
               >
-                {i === 1 ? "M" : i === 2 ? "T" : "W"}
+                {i === 1 ? "6pm" : i === 2 ? "7pm" : "8pm"}
               </div>
             ))}
             <div className="w-8 h-8 rounded-full bg-[#D4AF37]/20 border-2 border-[#1d1d1d] ring-1 ring-[#D4AF37]/30 flex items-center justify-center text-[10px] font-medium text-[#D4AF37]">
-              +2
+              +5
             </div>
           </div>
         </div>
@@ -318,24 +319,24 @@ const SchedulingSection = () => {
           >
             <div>
               <span className="bg-gradient-to-r from-[#D4AF37] to-[#C9A227] text-black px-3 py-1 rounded text-xs font-medium">
-                Priority
+                Confirmed
               </span>
               <h4 className="text-white text-sm font-semibold mt-3 mb-1">
-                Grooming & Spa Day
+                Family Dinner Reservation
               </h4>
               <p className="text-white/70 text-xs">
-                Full luxury treatment including bath, trim, nail care, and
-                aromatherapy massage.
+                Table for 6 people. Special request: Window seating with view.
+                Anniversary celebration.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row sm:items-center justify-between mt-5">
               <div className="flex items-center gap-2">
                 <div className="w-7 h-7 rounded-full bg-[#D4AF37]/20 flex items-center justify-center">
                   <span className="text-[10px] font-medium text-[#D4AF37]">
-                    2pm
+                    7pm
                   </span>
                 </div>
-                <div className="text-white/80 text-xs">Friday, Oct 15</div>
+                <div className="text-white/80 text-xs">Saturday, Nov 18</div>
               </div>
               <div className="flex items-center gap-4 text-white/50 text-sm mt-2">
                 <span className="flex items-center gap-1.5 text-xs">
@@ -352,8 +353,8 @@ const SchedulingSection = () => {
                   Notes
                 </span>
                 <span className="flex items-center gap-1.5 text-xs">
-                  <PawPrintIcon size={14} />
-                  Max
+                  <Utensils size={14} />
+                  Table 8
                 </span>
               </div>
             </div>
@@ -362,8 +363,8 @@ const SchedulingSection = () => {
       </ContentBox>
 
       <SectionTitle
-        title="Smart Scheduling"
-        description="Easily book and manage your pet's appointments, from regular grooming to special spa days, with our intuitive scheduling system."
+        title="Easy Reservations"
+        description="Book your table in advance for dine-in, special events, or large group gatherings. We'll ensure everything is ready for your arrival."
         icon={Calendar}
       />
     </SectionWrapper>
@@ -377,9 +378,9 @@ export default function Features3() {
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-0 w-full h-full">
-          <PawPrintIcon className="absolute w-96 h-96 text-[#D4AF37] -right-20 top-10 -rotate-12" />
-          <PawPrintIcon className="absolute w-64 h-64 text-[#D4AF37] left-10 bottom-10 rotate-12" />
-          <PawPrintIcon className="absolute w-32 h-32 text-[#D4AF37] left-1/3 top-1/3 -rotate-45" />
+          <Utensils className="absolute w-96 h-96 text-[#D4AF37] -right-20 top-10 -rotate-12" />
+          <Star className="absolute w-64 h-64 text-[#D4AF37] left-10 bottom-10 rotate-12" />
+          <ChefHat className="absolute w-32 h-32 text-[#D4AF37] left-1/3 top-1/3 -rotate-45" />
         </div>
       </div>
 
@@ -395,20 +396,20 @@ export default function Features3() {
           <div className="w-24 h-[3px] bg-[#D4AF37] mb-8 mx-auto"></div>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
-            The <span className="text-[#D4AF37]">Royal</span> Experience
+            The <span className="text-[#D4AF37]">Complete</span> Experience
           </h2>
 
           <p className="text-white/80 max-w-2xl mx-auto text-lg">
-            At Prince Paws, we believe every dog deserves to be treated like
-            royalty. Discover our premium features designed to provide the
-            ultimate luxury experience.
+            At Pankina Grill, we go beyond great food. Discover our premium
+            services designed to make every dining experience exceptional and
+            convenient.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <ConciergeSection />
-          <MembershipSection />
-          <SchedulingSection />
+          <CustomerServiceSection />
+          <LoyaltySection />
+          <ReservationSection />
         </div>
       </div>
     </section>

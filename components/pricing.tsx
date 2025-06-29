@@ -1,154 +1,312 @@
 "use client";
 import React from "react";
 import { motion } from "motion/react";
-import { PawPrintIcon, Crown, Shield, StarIcon } from "lucide-react";
-import Link from "next/link";
+import { useMediaQuery } from "@/hooks/use-media-query";
+import Image from "next/image";
 
-const PricingCard = ({
-  tier,
-  price,
-  isHighlighted = false,
-  features,
-  icon: Icon,
-  index,
-  cta,
+const menuData = {
+  menu: [
+    {
+      name: "Merguez",
+      prices: {
+        pita: 18.99,
+        laffa: 19.99,
+        baguette: 19.99,
+        plate: 21.99,
+      },
+    },
+    {
+      name: "Chicken Shawarma",
+      prices: {
+        pita: 16.99,
+        laffa: 17.99,
+        baguette: 19.99,
+        plate: 21.99,
+      },
+    },
+    {
+      name: "Persian Koobideh",
+      prices: {
+        pita: 16.99,
+        laffa: 17.99,
+        baguette: 17.99,
+        plate: 21.99,
+      },
+    },
+    {
+      name: "Chicken Thigh Skewer",
+      prices: {
+        pita: 16.99,
+        laffa: 17.99,
+        baguette: 17.99,
+        plate: 21.99,
+      },
+    },
+    {
+      name: "Persian Chicken Kebab",
+      prices: {
+        pita: 16.99,
+        laffa: 17.99,
+        baguette: 17.99,
+        plate: 21.99,
+      },
+    },
+    {
+      name: "House Kebab Skewer",
+      prices: {
+        pita: 16.99,
+        laffa: 17.99,
+        baguette: 17.99,
+        plate: 21.99,
+      },
+    },
+    {
+      name: "Schnitzel",
+      prices: {
+        pita: 16.99,
+        laffa: 17.99,
+        baguette: 17.99,
+        plate: 21.99,
+      },
+    },
+    {
+      name: "Grilled Chicken Breast",
+      prices: {
+        pita: 16.99,
+        laffa: 17.99,
+        baguette: 17.99,
+        plate: 21.99,
+      },
+    },
+    {
+      name: "Shakshuka",
+      prices: {
+        pita: 14.99,
+        laffa: 16.99,
+        baguette: 16.99,
+        plate: 18.99,
+      },
+    },
+    {
+      name: "Green Omelette",
+      prices: {
+        pita: 14.99,
+        laffa: 16.99,
+        baguette: 16.99,
+        plate: 18.99,
+      },
+    },
+    {
+      name: "Falafel",
+      prices: {
+        pita: 13.95,
+        laffa: 15.99,
+        baguette: 15.99,
+        plate: 18.99,
+      },
+    },
+    {
+      name: "Sabich",
+      prices: {
+        pita: 13.99,
+        laffa: 15.99,
+        baguette: 15.99,
+        plate: 17.99,
+      },
+    },
+    {
+      name: "Veggie",
+      prices: {
+        pita: 8.99,
+        laffa: 12.99,
+        baguette: 12.99,
+        plate: 15.99,
+      },
+    },
+  ],
+  burgers: [
+    {
+      name: "Double Burger",
+      price: 18.99,
+    },
+    {
+      name: "Hamburger",
+      price: 14.99,
+    },
+    {
+      name: "Schnitzel Burger",
+      price: 14.99,
+    },
+    {
+      name: "Falafel Burger",
+      price: 13.99,
+    },
+  ],
+  cold_beverages: [
+    {
+      name: "Soft Drinks",
+      price: 2.5,
+    },
+    {
+      name: "Water Bottled",
+      price: 2.5,
+    },
+    {
+      name: "Sparkling Water",
+      price: 2.5,
+    },
+    {
+      name: "Malt Beer (Non-Alcoholic)",
+      price: 4,
+    },
+    {
+      name: "Spring",
+      price: 3.5,
+    },
+  ],
+  extras: [
+    {
+      name: "Shawarma Per LB",
+      price: 17.99,
+    },
+    {
+      name: "Chicken Thigh Skewer",
+      price: 9.99,
+    },
+    {
+      name: "Persian Chicken Kebab",
+      price: 12.99,
+    },
+    {
+      name: "House Kebab Skewer",
+      price: 9.99,
+    },
+    {
+      name: "Persian Koobideh",
+      price: 7.99,
+    },
+    {
+      name: "Schnitzel",
+      price: 9.99,
+    },
+    {
+      name: "Grilled Chicken Breast",
+      price: 8.99,
+    },
+    {
+      name: "Merguez",
+      price: 3.99,
+    },
+    {
+      name: "Falafel Balls (6 pcs)",
+      price: 6.99,
+    },
+    {
+      name: "Pita",
+      price: 1.25,
+    },
+  ],
+  appetizers: [
+    {
+      name: "Hummus Shawarma",
+      price: 16.99,
+    },
+    {
+      name: "Hummus Falafel",
+      price: 15.99,
+    },
+    {
+      name: "Classic Hummus",
+      price: 9.99,
+    },
+    {
+      name: "Zaatar Laffa",
+      price: 5.99,
+    },
+    {
+      name: "Zaatar Pita",
+      price: 3.5,
+    },
+  ],
+};
+
+const MenuSection = ({
+  title,
+  items,
+  showPrices = false,
 }: {
-  tier: string;
-  price: number;
-  isHighlighted?: boolean;
-  features: string[];
-  icon: React.ElementType;
-  index: number;
-  cta: string;
+  title: string;
+  items: any[];
+  showPrices?: boolean;
 }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.5, delay: 0.1 * index }}
-      className={`relative rounded-2xl overflow-hidden ${
-        isHighlighted
-          ? "border-2 border-[#D4AF37]"
-          : "border border-[#D4AF37]/20"
-      }`}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="mb-8"
     >
-      {isHighlighted && (
-        <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-[#D4AF37] to-[#C9A227] text-center py-2 text-sm font-semibold text-black">
-          Most Popular
-        </div>
-      )}
-
-      <div
-        className={`p-8 ${
-          isHighlighted ? "pt-14" : "pt-8"
-        } bg-gradient-to-b from-[#252525] to-[#1d1d1d]`}
-      >
-        {/* Card Header */}
-        <div className="flex flex-col items-center mb-6">
-          <div
-            className={`w-16 h-16 rounded-full flex items-center justify-center mb-4 ${
-              isHighlighted
-                ? "bg-gradient-to-br from-[#D4AF37] to-[#C9A227] text-black"
-                : "bg-gradient-to-br from-[#D4AF37]/20 to-[#D4AF37]/5 text-[#D4AF37] border border-[#D4AF37]/20"
-            }`}
+      <h3 className="text-2xl font-bold text-[#D4AF37] mb-6 text-center uppercase tracking-wide">
+        {title}
+      </h3>
+      <div className="space-y-4">
+        {items.map((item, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.3, delay: index * 0.05 }}
+            className="bg-gradient-to-r from-[#252525]/80 to-[#1d1d1d]/80 rounded-lg p-4 border border-[#D4AF37]/20"
           >
-            {/* @ts-expect-error - Icon component may have incompatible props but works in practice */}
-            <Icon className="w-8 h-8" />
-          </div>
+            <div className="flex justify-between items-start">
+              <h4 className="text-white font-semibold text-lg mb-2">
+                {item.name}
+              </h4>
+              {showPrices && item.price && (
+                <span className="text-[#D4AF37] font-bold text-lg">
+                  ${item.price.toFixed(2)}
+                </span>
+              )}
+            </div>
 
-          <h3 className="text-2xl font-bold text-white mb-1">{tier}</h3>
-
-          <div className="flex items-baseline">
-            <span className="text-[#D4AF37] text-2xl font-semibold">$</span>
-            <span className="text-4xl font-bold bg-gradient-to-r from-[#D4AF37] to-[#F4CF47] bg-clip-text text-transparent">
-              {price}
-            </span>
-            <span className="ml-1 text-white/60">/month</span>
-          </div>
-        </div>
-
-        {/* Feature List */}
-        <ul className="space-y-4 mb-8">
-          {features.map((feature, i) => (
-            <motion.li
-              key={i}
-              initial={{ opacity: 0, x: -10 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, delay: 0.1 * i + 0.2 * index }}
-              className="flex items-start"
-            >
-              <PawPrintIcon
-                className={`w-5 h-5 mr-3 mt-0.5 ${
-                  isHighlighted ? "text-[#D4AF37]" : "text-[#D4AF37]/70"
-                }`}
-              />
-              <span className="text-white/80">{feature}</span>
-            </motion.li>
-          ))}
-        </ul>
-
-        {/* CTA Button */}
-        <motion.div
-          whileHover={{ scale: 1.03 }}
-          transition={{ type: "spring", stiffness: 400, damping: 10 }}
-        >
-          <Link
-            href="/login"
-            className={`block w-full py-3 px-6 rounded-full text-center font-medium transition-all duration-300 ${
-              isHighlighted
-                ? "bg-gradient-to-r from-[#D4AF37] to-[#C9A227] text-black hover:shadow-lg hover:shadow-[#D4AF37]/20"
-                : "bg-transparent border border-[#D4AF37] text-white hover:bg-[#D4AF37]/10"
-            }`}
-          >
-            {cta}
-          </Link>
-        </motion.div>
+            {item.prices && (
+              <div className="grid grid-cols-2 gap-3 mt-3">
+                {Object.entries(item.prices).map(([type, price]) => (
+                  <div
+                    key={type}
+                    className="flex justify-between items-center bg-[#1d1d1d]/50 rounded px-3 py-2"
+                  >
+                    <span className="text-white/80 capitalize text-sm">
+                      {type}
+                    </span>
+                    <span className="text-[#D4AF37] font-semibold">
+                      ${(price as number).toFixed(2)}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </motion.div>
+        ))}
       </div>
     </motion.div>
   );
 };
 
-export function Pricing() {
-  const basicFeatures = [
-    "Weekly grooming session",
-    "Basic health check-ups",
-    "2 walks per day (30 min each)",
-    "Standard food and treats",
-    "Photo updates twice weekly",
-  ];
-
-  const royalFeatures = [
-    "Twice-weekly premium grooming",
-    "Regular veterinary check-ups",
-    "3 private walks per day (45 min each)",
-    "Custom nutrition meal plan",
-    "Daily photo and video updates",
-    "Priority booking for special events",
-    "Complimentary spa treatment monthly",
-  ];
-
-  const imperialFeatures = [
-    "Unlimited grooming services",
-    "24/7 on-call veterinary care",
-    "4 private walks daily (45 min each)",
-    "Gourmet meal preparation",
-    "Live video check-ins anytime",
-    "Monthly birthday celebrations",
-    "Weekend staycation package included",
-  ];
+export function Menu() {
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
     <div
-      id="pricing"
+      id="menu"
       className="w-full bg-[#191919] py-20 md:py-28 relative overflow-hidden"
     >
       {/* Background Elements */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-0 w-full h-full">
-          <PawPrintIcon className="absolute w-96 h-96 text-[#D4AF37] right-20 top-20 -rotate-12" />
-          <PawPrintIcon className="absolute w-64 h-64 text-[#D4AF37] left-10 bottom-40 rotate-12" />
-          <PawPrintIcon className="absolute w-32 h-32 text-[#D4AF37] left-1/3 top-1/4 -rotate-45" />
+          <div className="absolute w-96 h-96 right-20 top-20 bg-[#D4AF37] rounded-full blur-3xl" />
+          <div className="absolute w-64 h-64 left-10 bottom-40 bg-[#D4AF37] rounded-full blur-3xl" />
         </div>
       </div>
 
@@ -164,72 +322,77 @@ export function Pricing() {
           <div className="w-24 h-[3px] bg-[#D4AF37] mb-8 mx-auto"></div>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
-            Royal <span className="text-[#D4AF37]">Treatment</span> Plans
+            Our <span className="text-[#D4AF37]">Menu</span>
           </h2>
 
           <p className="text-white/80 max-w-2xl mx-auto text-lg">
-            Choose the perfect care plan for your furry companion, each designed
-            to provide an exceptional luxury experience tailored to your
-            pet&apos;s needs.
+            Discover our authentic Mediterranean and Middle Eastern cuisine,
+            prepared fresh daily with the finest ingredients.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-          <PricingCard
-            tier="Noble Care"
-            price={199}
-            features={basicFeatures}
-            icon={Shield}
-            index={0}
-            cta="Get Started"
-          />
+        {/* Desktop: Show Menu Image */}
+        {!isMobile && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex justify-center mb-12"
+          >
+            <div className="relative max-w-4xl w-full">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37]/20 to-[#C9A227]/20 rounded-2xl blur-xl transform scale-105"></div>
+              <div className="relative bg-gradient-to-b from-[#252525] to-[#1d1d1d] rounded-2xl p-8 border border-[#D4AF37]/30">
+                <Image
+                  src="/images/image.png"
+                  alt="Pankina Grill Menu"
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto rounded-lg shadow-2xl"
+                  priority
+                />
+              </div>
+            </div>
+          </motion.div>
+        )}
 
-          <PricingCard
-            tier="Royal Care"
-            price={349}
-            features={royalFeatures}
-            isHighlighted
-            icon={Crown}
-            index={1}
-            cta="Experience Royalty"
-          />
+        {/* Mobile: Show Custom UI Breakdown */}
+        {isMobile && (
+          <div className="space-y-8">
+            <MenuSection title="Main Menu" items={menuData.menu} />
+            <MenuSection title="Burgers" items={menuData.burgers} showPrices />
+            <MenuSection
+              title="Appetizers"
+              items={menuData.appetizers}
+              showPrices
+            />
+            <MenuSection
+              title="Cold Beverages"
+              items={menuData.cold_beverages}
+              showPrices
+            />
+            <MenuSection title="Extras" items={menuData.extras} showPrices />
+          </div>
+        )}
 
-          <PricingCard
-            tier="Imperial Care"
-            price={499}
-            features={imperialFeatures}
-            icon={StarIcon}
-            index={2}
-            cta="Join Elite Membership"
-          />
-        </div>
-
-        {/* Custom Care Option */}
+        {/* Call to Action */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="mt-16 text-center bg-gradient-to-b from-[#252525] to-[#1d1d1d] rounded-2xl p-8 border border-[#D4AF37]/20"
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-16 text-center"
         >
-          <h3 className="text-2xl font-bold text-white mb-4">
-            Need a Custom Care Plan?
-          </h3>
-          <p className="text-white/70 max-w-2xl mx-auto mb-6">
-            Our pet concierge is ready to create a bespoke care package
-            perfectly tailored to your companion&apos;s unique preferences and
-            needs.
-          </p>
           <motion.div
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
             className="inline-block"
           >
-            <Link
-              href="/contact"
-              className="inline-flex items-center px-8 py-3 rounded-full bg-transparent border border-[#D4AF37] text-white hover:bg-[#D4AF37]/10 transition-all duration-300"
+            <a
+              href="tel:+1234567890"
+              className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#C9A227] text-black font-semibold text-lg hover:shadow-lg hover:shadow-[#D4AF37]/30 transition-all duration-300"
             >
-              <span>Contact Our Concierge</span>
+              <span>Order Now</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5 ml-2"
@@ -241,10 +404,10 @@ export function Pricing() {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                 />
               </svg>
-            </Link>
+            </a>
           </motion.div>
         </motion.div>
       </div>

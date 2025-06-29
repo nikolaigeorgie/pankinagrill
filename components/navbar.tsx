@@ -24,19 +24,19 @@ export const Navbar = () => {
   const navItems = [
     {
       name: "Home",
-      link: "/#home",
+      link: "#home",
     },
     {
-      name: "Services",
-      link: "/#services",
+      name: "Menu",
+      link: "#menu",
     },
     {
-      name: "About Us",
-      link: "/#about",
+      name: "Reviews",
+      link: "#testimonials",
     },
     {
-      name: "Gallery",
-      link: "/#gallery",
+      name: "FAQ",
+      link: "#faq",
     },
   ];
 
@@ -110,7 +110,7 @@ const DesktopNav = ({ navItems, visible }: NavbarProps) => {
         <Link href="/">
           <Image
             src="/images/logo.png"
-            alt="Prince Paws Logo"
+            alt="Pankina Grill Logo"
             className="h-12 w-auto"
             width={100}
             height={40}
@@ -179,20 +179,20 @@ const DesktopNav = ({ navItems, visible }: NavbarProps) => {
           }}
         >
           <div className="flex items-center gap-3">
-            <Link
-              href="/login"
+            <a
+              href="tel:+1234567890"
               className="group relative inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#D4AF37] to-[#C9A227] px-5 py-2 text-sm font-medium text-black transition-all duration-300 ease-in-out hover:shadow hover:shadow-[#D4AF37]/30 focus:outline-none focus:ring-1 focus:ring-[#D4AF37] focus:ring-offset-1"
             >
-              <span>Book Now</span>
-            </Link>
+              <span>Order Now</span>
+            </a>
             <Link
-              href="https://www.instagram.com/princes.paw/?igsh=MThia2FnODM0NjVmZg%3D%3D"
+              href="https://www.instagram.com/pankinagrill?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1 rounded-full bg-gradient-to-r from-[#E1306C] to-[#C13584] px-3 py-1.5 text-sm font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-[#E1306C]/20 hover:translate-y-[-1px]"
             >
               <Instagram className="w-4 h-4 mr-1" />
-              <span>@princes.paw</span>
+              <span>@pankinagrill</span>
             </Link>
           </div>
         </motion.div>
@@ -241,7 +241,7 @@ const MobileNav = ({ navItems, visible }: NavbarProps) => {
           <Link href="/">
             <Image
               src="/images/logo.png"
-              alt="Prince Paws Logo"
+              alt="Pankina Grill Logo"
               className="h-10 w-auto"
               width={100}
               height={40}
@@ -313,20 +313,20 @@ const MobileNav = ({ navItems, visible }: NavbarProps) => {
               <div className="w-full h-px bg-[#D4AF37]/20 my-2"></div>
 
               <div className="flex flex-col w-full gap-3 mt-2">
-                <Link
-                  href="/contact"
+                <a
+                  href="tel:+1234567890"
                   onClick={() => setOpen(false)}
                   className="w-full relative inline-flex items-center justify-center rounded-full bg-transparent border border-[#D4AF37] px-5 py-2 text-sm font-medium text-white transition-all duration-300 ease-in-out hover:bg-[#D4AF37]/10"
                 >
-                  <span>Contact</span>
-                </Link>
-                <Link
-                  href="/login"
+                  <span>Call Now</span>
+                </a>
+                <a
+                  href="tel:+1234567890"
                   onClick={() => setOpen(false)}
                   className="w-full relative inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#D4AF37] to-[#C9A227] px-5 py-2 text-sm font-medium text-black transition-all duration-300 ease-in-out"
                 >
-                  <span>Book Now</span>
-                </Link>
+                  <span>Order Now</span>
+                </a>
               </div>
             </motion.div>
           )}

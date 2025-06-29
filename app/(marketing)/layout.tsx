@@ -7,23 +7,23 @@ import { Footer } from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
-  title: "Prince Paws | Luxury Dog Care Service",
+  title: "Pankina Grill | Authentic Mediterranean & Middle Eastern Cuisine",
   description:
-    "Prince Paws offers premium dog care services including luxury day care, spa & grooming, training, and special events. Your furry companion deserves the royal treatment.",
+    "Pankina Grill offers authentic Mediterranean and Middle Eastern cuisine. Fresh shawarma, Persian kebabs, falafel, and traditional dishes prepared daily. Delivery, takeout, and catering available.",
   icons: {
     icon: "/images/logo.png",
     apple: "/images/logo.png",
   },
   openGraph: {
-    title: "Prince Paws | Luxury Dog Care Service",
+    title: "Pankina Grill | Authentic Mediterranean & Middle Eastern Cuisine",
     description:
-      "Premium care for your royal companions. Where every pet is treated like royalty.",
+      "Fresh Mediterranean and Middle Eastern cuisine prepared daily. Authentic flavors, traditional recipes, exceptional service. Order delivery, takeout, or dine-in.",
     images: [
       {
-        url: "/images/royal_dog_logo.png",
+        url: "/images/image3.png",
         width: 800,
         height: 600,
-        alt: "Royal Dog - Prince Paws",
+        alt: "Pankina Grill - Mediterranean & Middle Eastern Cuisine",
       },
     ],
     locale: "en_US",
@@ -31,11 +31,25 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Prince Paws | Luxury Dog Care Service",
+    title: "Pankina Grill | Mediterranean & Middle Eastern Restaurant",
     description:
-      "Premium care for your royal companions. Where every pet is treated like royalty.",
-    images: ["/images/royal_dog_logo.png"],
+      "Authentic Mediterranean and Middle Eastern cuisine. Fresh ingredients, traditional flavors, fast delivery. Order now!",
+    images: ["/images/logo.png"],
   },
+  keywords: [
+    "Mediterranean restaurant",
+    "Middle Eastern food",
+    "shawarma",
+    "kebabs",
+    "falafel",
+    "hummus",
+    "Persian cuisine",
+    "delivery",
+    "takeout",
+    "catering",
+    "fresh ingredients",
+    "authentic flavors",
+  ],
 };
 
 export default function RootLayout({

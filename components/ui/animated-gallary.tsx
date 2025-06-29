@@ -4,7 +4,7 @@ import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { PawPrintIcon } from "lucide-react";
+import { Utensils, ChefHat, Star } from "lucide-react";
 
 type GalleryItem = {
   title: string;
@@ -49,9 +49,9 @@ export const AnimatedGallary = ({
     <div className="relative mx-auto max-w-sm px-4 py-20 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12 bg-[#191919] rounded-3xl">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-5 overflow-hidden rounded-3xl">
-        <PawPrintIcon className="absolute w-80 h-80 text-[#D4AF37] right-10 top-0 rotate-12" />
-        <PawPrintIcon className="absolute w-64 h-64 text-[#D4AF37] left-10 bottom-0 -rotate-15" />
-        <PawPrintIcon className="absolute w-40 h-40 text-[#D4AF37] left-1/3 top-1/3 rotate-45" />
+        <Utensils className="absolute w-80 h-80 text-[#D4AF37] right-10 top-0 rotate-12" />
+        <ChefHat className="absolute w-64 h-64 text-[#D4AF37] left-10 bottom-0 -rotate-15" />
+        <Star className="absolute w-40 h-40 text-[#D4AF37] left-1/3 top-1/3 rotate-45" />
       </div>
 
       {/* Gold accent line */}
