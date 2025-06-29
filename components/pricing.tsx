@@ -124,6 +124,7 @@ const menuData = {
       },
     },
   ],
+
   burgers: [
     {
       name: "Double Burger",
@@ -226,6 +227,42 @@ const menuData = {
     {
       name: "Zaatar Pita",
       price: 3.5,
+    },
+  ],
+  salads: [
+    {
+      name: "Hummus",
+      price: 8.99,
+    },
+    {
+      name: "Israeli Salad",
+      price: 6.99,
+    },
+    {
+      name: "Fried Eggplant",
+      price: 5.99,
+    },
+    {
+      name: "White Cabbage",
+      price: 5.99,
+    },
+    {
+      name: "Red Cabbage",
+      price: 6.99,
+    },
+    {
+      name: "White Rice",
+      price: 4.99,
+    },
+    {
+      name: "Pico de Gallo",
+      price: 7.99,
+    },
+  ],
+  soups: [
+    {
+      name: "Yemeni Chicken Soup",
+      price: 15.99,
     },
   ],
 };
@@ -340,7 +377,7 @@ export function Menu() {
             transition={{ duration: 0.6 }}
             className="flex justify-center mb-12"
           >
-            <div className="relative max-w-4xl w-full">
+            <div className="relative max-w-4xl w-full space-y-4">
               <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37]/20 to-[#C9A227]/20 rounded-2xl blur-xl transform scale-105"></div>
               <div className="relative bg-gradient-to-b from-[#252525] to-[#1d1d1d] rounded-2xl p-8 border border-[#D4AF37]/30">
                 <Image
@@ -348,8 +385,15 @@ export function Menu() {
                   alt="Pankina Grill Menu"
                   width={1200}
                   height={800}
-                  className="w-full h-auto rounded-lg shadow-2xl"
+                  className="w-full h-auto rounded-t-lg shadow-2xl"
                   priority
+                />
+                <Image
+                  src="/images/menu-1.jpeg"
+                  alt="Pankina Grill Menu Continued"
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto rounded-b-lg shadow-2xl"
                 />
               </div>
             </div>
@@ -389,7 +433,7 @@ export function Menu() {
             className="inline-block"
           >
             <a
-              href="tel:+1234567890"
+              href="tel:+‭18184574095‬"
               className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#C9A227] text-black font-semibold text-lg hover:shadow-lg hover:shadow-[#D4AF37]/30 transition-all duration-300"
             >
               <span>Order Now</span>

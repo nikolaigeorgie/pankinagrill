@@ -180,7 +180,7 @@ const DesktopNav = ({ navItems, visible }: NavbarProps) => {
         >
           <div className="flex items-center gap-3">
             <a
-              href="tel:+1234567890"
+              href="tel:+‭18184574095‬"
               className="group relative inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#D4AF37] to-[#C9A227] px-5 py-2 text-sm font-medium text-black transition-all duration-300 ease-in-out hover:shadow hover:shadow-[#D4AF37]/30 focus:outline-none focus:ring-1 focus:ring-[#D4AF37] focus:ring-offset-1"
             >
               <span>Order Now</span>
@@ -314,14 +314,14 @@ const MobileNav = ({ navItems, visible }: NavbarProps) => {
 
               <div className="flex flex-col w-full gap-3 mt-2">
                 <a
-                  href="tel:+1234567890"
+                  href="tel:+‭18184574095‬"
                   onClick={() => setOpen(false)}
                   className="w-full relative inline-flex items-center justify-center rounded-full bg-transparent border border-[#D4AF37] px-5 py-2 text-sm font-medium text-white transition-all duration-300 ease-in-out hover:bg-[#D4AF37]/10"
                 >
                   <span>Call Now</span>
                 </a>
                 <a
-                  href="tel:+1234567890"
+                  href="tel:+‭18184574095‬"
                   onClick={() => setOpen(false)}
                   className="w-full relative inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#D4AF37] to-[#C9A227] px-5 py-2 text-sm font-medium text-black transition-all duration-300 ease-in-out"
                 >

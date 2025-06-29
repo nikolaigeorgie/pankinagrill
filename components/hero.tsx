@@ -53,7 +53,7 @@ export function Hero() {
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row gap-5">
             <Link
-              href="/login"
+              href="#menu"
               className="group relative inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#D4AF37] to-[#C9A227] px-8 py-3 text-base font-medium text-black transition-all duration-300 ease-in-out hover:shadow-lg hover:shadow-[#D4AF37]/30 hover:translate-y-[-2px] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:ring-offset-2"
             >
               <span>Menu</span>

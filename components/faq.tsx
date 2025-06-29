@@ -174,7 +174,7 @@ export function FAQ() {
             Have more questions about our menu or services?
           </p>
           <a
-            href="tel:+1234567890"
+            href="tel:+‭18184574095‬"
             className="inline-flex items-center px-8 py-3 rounded-full bg-transparent border border-[#D4AF37] text-white hover:bg-[#D4AF37]/10 transition-all duration-300"
           >
             <span>Call Us Now</span>
