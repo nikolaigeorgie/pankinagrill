@@ -58,7 +58,7 @@ export default function InstagramFeed() {
   }, []);
 
   return (
-    <section className="relative w-full bg-[#191919] py-20 overflow-hidden">
+    <section className="relative w-full bg-background py-20 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-5">
         <PawPrintIcon className="absolute w-96 h-96 text-[#D4AF37] right-20 top-10 rotate-12" />

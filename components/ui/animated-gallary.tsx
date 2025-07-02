@@ -46,7 +46,7 @@ export const AnimatedGallary = ({
   };
 
   return (
-    <div className="relative mx-auto max-w-sm px-4 py-20 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12 bg-[#191919] rounded-3xl">
+    <div className="relative mx-auto max-w-sm px-4 py-20 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12 bg-background rounded-3xl">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-5 overflow-hidden rounded-3xl">
         <Utensils className="absolute w-80 h-80 text-[#D4AF37] right-10 top-0 rotate-12" />

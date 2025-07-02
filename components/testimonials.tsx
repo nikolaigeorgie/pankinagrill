@@ -46,7 +46,7 @@ export function Testimonials() {
   }, []);
 
   return (
-    <section className="w-full bg-[#191919] py-20 md:py-28 relative overflow-hidden">
+    <section className="w-full bg-background py-20 md:py-28 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-0 w-full h-full">

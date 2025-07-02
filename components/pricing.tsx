@@ -357,7 +357,7 @@ export function Menu() {
   return (
     <div
       id="menu"
-      className="w-full relative bg-[#191919] py-20 md:py-28 relative overflow-hidden"
+      className="w-full relative bg-background py-20 md:py-28 relative overflow-hidden"
     >
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-5">
@@ -489,7 +489,7 @@ export function Menu() {
         {/* Mobile: Show Custom UI Breakdown */}
         {activeTab === "mobile" && (
           <>
-            <div className="sticky top-0 z-50 bg-[#191919]/95 backdrop-blur-md border-b border-[#D4AF37]/20 mb-8">
+            <div className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-[#D4AF37]/20 mb-8">
               <div className="max-w-7xl mx-auto px-4 md:px-8">
                 <div className="flex overflow-x-auto scrollbar-hide py-4 space-x-2">
                   {categories.map((category) => (

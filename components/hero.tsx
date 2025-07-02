@@ -6,10 +6,10 @@ import Image from "next/image";
 
 export function Hero() {
   return (
-    <div className="relative w-full h-screen bg-[#191919] overflow-hidden">
+    <div className="relative w-full h-screen bg-black overflow-hidden">
       {/* Background image with overlay */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-t from-[#191919] via-[#191919]/70 to-[#191919]/20 z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/20 z-10"></div>
         <Image
           src="/images/image1.png"
           alt="Luxury Dog Experience"
@@ -45,9 +45,6 @@ export function Hero() {
             <br />
             Fresh kebabs, hummus, and Mediterranean favorites.
             <br />
-            <span className="text-[#D4AF37] font-medium">
-              Taste from the East.
-            </span>
           </p>
 
           {/* CTA buttons */}
@@ -75,7 +72,7 @@ export function Hero() {
 
             <Link
               href="tel:+‭18184574095‬"
-              className="group relative inline-flex items-center justify-center rounded-full bg-transparent border-2 border-[#D4AF37] px-8 py-3 text-base font-medium text-white transition-all duration-300 ease-in-out hover:bg-[#D4AF37]/10 hover:shadow-lg hover:shadow-[#D4AF37]/20 hover:translate-y-[-2px] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:ring-offset-2 focus:ring-offset-[#191919]"
+              className="group relative inline-flex items-center justify-center rounded-full bg-transparent border-2 border-[#D4AF37] px-8 py-3 text-base font-medium text-white transition-all duration-300 ease-in-out hover:bg-[#D4AF37]/10 hover:shadow-lg hover:shadow-[#D4AF37]/20 hover:translate-y-[-2px] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:ring-offset-2 focus:ring-offset-black"
             >
               <span>Contact</span>
               <motion.svg
@@ -134,18 +131,16 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1 }}
-          className="absolute bottom-10 right-10 hidden md:block"
+          className="absolute bottom-10 right-10 block"
         >
-          <div className="w-32 h-32 bg-gradient-to-br from-[#F4CF47]/20 to-[#F4CF47]/40 border-2 border-[#F4CF47] rounded-full flex items-center justify-center relative overflow-hidden backdrop-blur-sm">
+          <div className="h-20 w-20 md:h-24 md:w-24 lg:w-32 lg:h-32 bg-gradient-to-br from-[#F4CF47]/20 to-[#F4CF47]/40 border-2 border-[#F4CF47] rounded-full flex items-center justify-center relative overflow-hidden backdrop-blur-sm">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(244,207,71,0.6),transparent_70%)]"></div>
             <div className="absolute inset-0 animate-spin-slow [background:linear-gradient(45deg,transparent_40%,rgba(244,207,71,0.5)_45%,rgba(244,207,71,0.5)_55%,transparent_60%)] blur-sm"></div>
-            <div className="relative z-10 p-3">
-              <Image
+            <div className="relative z-10 p-2 md:p-3">
+              <img
                 src="/images/rcc.png"
                 alt="RCC Kashrut Certification"
-                width={60}
-                height={60}
-                className="w-full h-auto object-contain filter drop-shadow-lg brightness-110"
+                className="w-[40px] h-[40px] md:w-[50px] md:h-[50px] lg:w-[60px] lg:h-[60px] object-contain filter drop-shadow-lg brightness-110"
                 draggable={false}
               />
             </div>

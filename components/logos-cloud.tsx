@@ -6,7 +6,7 @@ import { MapPin, Star } from "lucide-react";
 
 export function LogoCloud() {
   return (
-    <section className="relative w-full py-16 bg-[#191919] overflow-hidden">
+    <section className="relative w-full py-16 bg-background overflow-hidden">
       <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -80,8 +80,8 @@ export function LogoCloud() {
                     Mega Glatt Mart
                   </h3>
                   <p className="text-white/70 leading-relaxed">
-                    Pankina Grill operates as part of Mega Glatt Mart, ensuring
-                    the highest standards of kashrut and quality in our
+                    Pankina Grill operates by Mega Glatt Mart, ensuring the
+                    highest standards of kashrut and quality in our
                     Mediterranean and Middle Eastern cuisine.
                   </p>
                 </div>
@@ -105,7 +105,7 @@ export function LogoCloud() {
                     rel="noopener noreferrer"
                     className="text-white/70 hover:text-[#D4AF37] transition-colors"
                   >
-                    6114 Reseda Blvd
+                    6118 Reseda Blvd
                     <br />
                     Reseda, CA 91335
                   </a>

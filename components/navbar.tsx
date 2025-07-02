@@ -281,7 +281,7 @@ const MobileNav = ({ navItems, visible }: NavbarProps) => {
                 duration: 0.2,
                 ease: "easeInOut",
               }}
-              className="flex rounded-2xl absolute top-16 backdrop-blur-xl bg-[#191919]/95 inset-x-0 z-50 flex-col items-start justify-start gap-4 w-full px-6 py-6 shadow-lg border border-[#D4AF37]/20"
+              className="flex rounded-2xl absolute top-16 backdrop-blur-xl bg-background/95 inset-x-0 z-50 flex-col items-start justify-start gap-4 w-full px-6 py-6 shadow-lg border border-[#D4AF37]/20"
             >
               {navItems.map(
                 (navItem: { link: string; name: string }, idx: number) => (

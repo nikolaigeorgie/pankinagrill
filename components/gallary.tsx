@@ -87,7 +87,7 @@ export default function Gallery() {
   ];
 
   return (
-    <section className="w-full bg-[#191919] py-16 relative overflow-hidden">
+    <section className="w-full bg-background py-16 relative overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

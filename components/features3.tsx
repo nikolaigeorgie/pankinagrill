@@ -9,6 +9,7 @@ import {
   Calendar,
   Star,
   ChefHat,
+  Clock,
 } from "lucide-react";
 
 // Message type definition
@@ -281,14 +282,14 @@ const LoyaltySection = () => {
   );
 };
 
-// Reservation System Section
-const ReservationSection = () => {
+// Featured Dishes Section
+const FeaturedDishesSection = () => {
   return (
     <SectionWrapper>
       <ContentBox>
         <div className="flex items-center justify-between mb-6">
           <button className="text-[#D4AF37] hover:text-[#F4CF47] transition-colors font-medium text-sm">
-            + New Reservation
+            ⭐ Today's Special
           </button>
           <div className="flex -space-x-3">
             {[1, 2, 3].map((i) => (
@@ -296,11 +297,11 @@ const ReservationSection = () => {
                 key={i}
                 className="w-8 h-8 rounded-full bg-[#353535] border-2 border-[#1d1d1d] ring-1 ring-[#D4AF37]/20 flex items-center justify-center text-[10px] font-medium text-white/80"
               >
-                {i === 1 ? "6pm" : i === 2 ? "7pm" : "8pm"}
+                {i === 1 ? "4.9" : i === 2 ? "4.8" : "4.7"}
               </div>
             ))}
             <div className="w-8 h-8 rounded-full bg-[#D4AF37]/20 border-2 border-[#1d1d1d] ring-1 ring-[#D4AF37]/30 flex items-center justify-center text-[10px] font-medium text-[#D4AF37]">
-              +5
+              ⭐
             </div>
           </div>
         </div>
@@ -319,24 +320,25 @@ const ReservationSection = () => {
           >
             <div>
               <span className="bg-gradient-to-r from-[#D4AF37] to-[#C9A227] text-black px-3 py-1 rounded text-xs font-medium">
-                Confirmed
+                Chef's Choice
               </span>
               <h4 className="text-white text-sm font-semibold mt-3 mb-1">
-                Family Dinner Reservation
+                Signature Mixed Grill
               </h4>
               <p className="text-white/70 text-xs">
-                Table for 6 people. Special request: Window seating with view.
-                Anniversary celebration.
+                Our most popular dish featuring perfectly seasoned chicken,
+                tender lamb, and fresh vegetables served with warm pita and
+                house-made sauce.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row sm:items-center justify-between mt-5">
               <div className="flex items-center gap-2">
                 <div className="w-7 h-7 rounded-full bg-[#D4AF37]/20 flex items-center justify-center">
                   <span className="text-[10px] font-medium text-[#D4AF37]">
-                    7pm
+                    $18
                   </span>
                 </div>
-                <div className="text-white/80 text-xs">Saturday, Nov 18</div>
+                <div className="text-white/80 text-xs">Starting at</div>
               </div>
               <div className="flex items-center gap-4 text-white/50 text-sm mt-2">
                 <span className="flex items-center gap-1.5 text-xs">
@@ -348,13 +350,13 @@ const ReservationSection = () => {
                     stroke="currentColor"
                     strokeWidth="2"
                   >
-                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
                   </svg>
-                  Notes
+                  4.9/5
                 </span>
                 <span className="flex items-center gap-1.5 text-xs">
                   <Utensils size={14} />
-                  Table 8
+                  Best Seller
                 </span>
               </div>
             </div>
@@ -363,9 +365,9 @@ const ReservationSection = () => {
       </ContentBox>
 
       <SectionTitle
-        title="Easy Reservations"
-        description="Book your table in advance for dine-in, special events, or large group gatherings. We'll ensure everything is ready for your arrival."
-        icon={Calendar}
+        title="Featured Dishes"
+        description="Discover our most popular and highly-rated dishes. From signature grills to daily specials, find your next favorite meal."
+        icon={ChefHat}
       />
     </SectionWrapper>
   );
@@ -374,7 +376,7 @@ const ReservationSection = () => {
 // Main Features3 component
 export default function Features3() {
   return (
-    <section className="w-full bg-[#191919] py-20 md:py-28 px-4 relative overflow-hidden">
+    <section className="w-full bg-background py-20 md:py-28 px-4 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-0 w-full h-full">
@@ -409,7 +411,7 @@ export default function Features3() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <CustomerServiceSection />
           <LoyaltySection />
-          <ReservationSection />
+          <FeaturedDishesSection />
         </div>
       </div>
     </section>

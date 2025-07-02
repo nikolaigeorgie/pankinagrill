@@ -43,7 +43,7 @@ export function FAQ() {
   return (
     <section
       id="faq"
-      className="w-full bg-[#191919] py-20 md:py-28 relative overflow-hidden"
+      className="w-full bg-background py-20 md:py-28 relative overflow-hidden"
     >
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-10">
