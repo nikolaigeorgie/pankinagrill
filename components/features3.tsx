@@ -282,26 +282,55 @@ const LoyaltySection = () => {
   );
 };
 
-// Featured Dishes Section
-const FeaturedDishesSection = () => {
+// Restaurant Hours Section
+const RestaurantHoursSection = () => {
+  const getCurrentDay = () => {
+    const days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+    return days[new Date().getDay()];
+  };
+
+  const currentDay = getCurrentDay();
+
+  const weeklyHours = [
+    { day: "Monday", hours: "11:00 AM - 9:00 PM", isOpen: true },
+    { day: "Tuesday", hours: "11:00 AM - 9:00 PM", isOpen: true },
+    { day: "Wednesday", hours: "11:00 AM - 9:00 PM", isOpen: true },
+    { day: "Thursday", hours: "11:00 AM - 9:00 PM", isOpen: true },
+    { day: "Friday", hours: "11:00 AM - 4hrs before sunset", isOpen: true },
+    { day: "Saturday", hours: "Closed", isOpen: false },
+    { day: "Sunday", hours: "11:00 AM - 9:00 PM", isOpen: true },
+  ];
+
   return (
     <SectionWrapper>
       <ContentBox>
         <div className="flex items-center justify-between mb-6">
           <button className="text-[#D4AF37] hover:text-[#F4CF47] transition-colors font-medium text-sm">
-            ⭐ Today's Special
+            🕐 Current Hours
           </button>
           <div className="flex -space-x-3">
-            {[1, 2, 3].map((i) => (
+            {weeklyHours.slice(0, 3).map((item, i) => (
               <div
                 key={i}
-                className="w-8 h-8 rounded-full bg-[#353535] border-2 border-[#1d1d1d] ring-1 ring-[#D4AF37]/20 flex items-center justify-center text-[10px] font-medium text-white/80"
+                className={`w-8 h-8 rounded-full border-2 border-[#1d1d1d] ring-1 ring-[#D4AF37]/20 flex items-center justify-center text-[8px] font-medium ${
+                  item.isOpen
+                    ? "bg-[#353535] text-white/80"
+                    : "bg-red-500/20 text-red-400"
+                }`}
               >
-                {i === 1 ? "4.9" : i === 2 ? "4.8" : "4.7"}
+                {item.day.slice(0, 3)}
               </div>
             ))}
             <div className="w-8 h-8 rounded-full bg-[#D4AF37]/20 border-2 border-[#1d1d1d] ring-1 ring-[#D4AF37]/30 flex items-center justify-center text-[10px] font-medium text-[#D4AF37]">
-              ⭐
+              +4
             </div>
           </div>
         </div>
@@ -319,45 +348,45 @@ const FeaturedDishesSection = () => {
             className="rounded-[16px] absolute inset-0 border-[0.7px] border-[#D4AF37]/20 bg-[#202020] shadow-lg p-5"
           >
             <div>
-              <span className="bg-gradient-to-r from-[#D4AF37] to-[#C9A227] text-black px-3 py-1 rounded text-xs font-medium">
-                Chef's Choice
+              <span
+                className={`px-3 py-1 rounded text-xs font-medium ${
+                  currentDay === "Saturday"
+                    ? "bg-red-500/20 text-red-400"
+                    : "bg-gradient-to-r from-[#D4AF37] to-[#C9A227] text-black"
+                }`}
+              >
+                {currentDay === "Saturday" ? "Closed Today" : "Open Today"}
               </span>
               <h4 className="text-white text-sm font-semibold mt-3 mb-1">
-                Signature Mixed Grill
+                Today's Hours - {currentDay}
               </h4>
-              <p className="text-white/70 text-xs">
-                Our most popular dish featuring perfectly seasoned chicken,
-                tender lamb, and fresh vegetables served with warm pita and
-                house-made sauce.
+              <p className="text-white/70 text-xs mb-4">
+                {weeklyHours.find((h) => h.day === currentDay)?.hours}
               </p>
-            </div>
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between mt-5">
-              <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-full bg-[#D4AF37]/20 flex items-center justify-center">
-                  <span className="text-[10px] font-medium text-[#D4AF37]">
-                    $18
-                  </span>
-                </div>
-                <div className="text-white/80 text-xs">Starting at</div>
-              </div>
-              <div className="flex items-center gap-4 text-white/50 text-sm mt-2">
-                <span className="flex items-center gap-1.5 text-xs">
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
+              <div className="space-y-1">
+                {weeklyHours.slice(0, 4).map((item, index) => (
+                  <div
+                    key={index}
+                    className="flex justify-between items-center text-xs"
                   >
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                  </svg>
-                  4.9/5
-                </span>
-                <span className="flex items-center gap-1.5 text-xs">
-                  <Utensils size={14} />
-                  Best Seller
-                </span>
+                    <span
+                      className={`${
+                        item.day === currentDay
+                          ? "text-[#D4AF37] font-medium"
+                          : "text-white/60"
+                      }`}
+                    >
+                      {item.day}
+                    </span>
+                    <span
+                      className={`${
+                        item.isOpen ? "text-white/80" : "text-red-400"
+                      }`}
+                    >
+                      {item.hours}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
           </motion.div>
@@ -365,9 +394,9 @@ const FeaturedDishesSection = () => {
       </ContentBox>
 
       <SectionTitle
-        title="Featured Dishes"
-        description="Discover our most popular and highly-rated dishes. From signature grills to daily specials, find your next favorite meal."
-        icon={ChefHat}
+        title="Restaurant Hours"
+        description="Visit us during our operating hours. Please note our special Friday schedule and that we're closed on Saturdays."
+        icon={Clock}
       />
     </SectionWrapper>
   );
